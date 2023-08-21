@@ -1,38 +1,80 @@
 import type { FC } from 'react';
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
 import './App.css';
+import type { Live } from './components/LiveList';
+import LiveList from './components/LiveList';
 
 const App: FC = () => {
-  const [count, setCount] = useState(0);
+  const lives: Live[] = [
+    {
+      id: 1,
+      band: 'Azami',
+      eventDate: '2024-01-02T09:00:00.000Z',
+      title: 'SOULJAPAN & ANTIKNOCK pre .日本男児 vol.61',
+      venue: '新宿ANTIKNOCK',
+      act: 'Azami',
+    },
+    {
+      id: 2,
+      band: 'Azami',
+      eventDate: '2023-09-03T09:00:00.000Z',
+      title: 'FORWARD RELEASE TOUR 2023',
+      venue: '新潟club RIVERST',
+      act: 'Azami',
+    },
+    {
+      id: 3,
+      band: 'Azami',
+      eventDate: '2023-08-26T09:00:00.000Z',
+      title: 'FORWARD RELEASE TOUR 2023',
+      venue: '岡山CRAZY MAMA 2nd room',
+      act: 'Azami',
+    },
+    {
+      id: 4,
+      band: 'Azami',
+      eventDate: '2023-09-09T09:00:00.000Z',
+      title: 'FORWARD RELEASE TOUR 2023',
+      venue: '甲府KAZOO HALL',
+      act: 'Azami',
+    },
+    {
+      id: 5,
+      band: 'Azami',
+      eventDate: '2023-08-13T09:00:00.000Z',
+      title: 'FORWARD RELEASE TOUR 2023',
+      venue: '仙台enn 3rd',
+      act: 'Azami',
+    },
+    {
+      id: 6,
+      band: 'Azami',
+      eventDate: '2023-09-06T09:00:00.000Z',
+      title: 'B.B.STREET 26th Anniversary SP Party',
+      venue: "川崎club CITTA' & A'TTIC",
+      act: 'Azami',
+    },
+    {
+      id: 7,
+      band: 'Azami',
+      eventDate: '2023-08-27T09:00:00.000Z',
+      title: 'FORWARD RELEASE TOUR 2023',
+      venue: '大阪心斎橋VARON',
+      act: 'Azami',
+    },
+    {
+      id: 8,
+      band: 'Azami',
+      eventDate: '2023-10-08T09:00:00.000Z',
+      title: 'sinma pre “ever free”',
+      venue: '駒ヶ根G-studio NIRVASH',
+      act: 'Azami',
+    },
+  ];
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button
-          onClick={() => {
-            setCount((count) => count + 1);
-          }}
-        >
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div>
+      <LiveList lives={lives} />{' '}
+    </div>
   );
 };
 
