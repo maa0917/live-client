@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import './App.css';
+import { CssBaseline, ThemeProvider, createTheme } from '@mui/material';
 import type { Live } from './components/LiveList';
 import LiveList from './components/LiveList';
 
@@ -71,9 +71,31 @@ const App: FC = () => {
     },
   ];
 
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: '#212121',
+      },
+      secondary: {
+        main: '#757575',
+      },
+      background: {
+        default: '#f5f5f5',
+        paper: '#fff',
+      },
+      text: {
+        primary: '#212121',
+        secondary: '#757575',
+      },
+    },
+  });
+
   return (
     <div>
-      <LiveList lives={lives} />{' '}
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <LiveList lives={lives} />
+      </ThemeProvider>
     </div>
   );
 };
