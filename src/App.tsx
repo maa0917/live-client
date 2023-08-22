@@ -1,5 +1,6 @@
 import type { FC } from 'react';
 import { CssBaseline, ThemeProvider, createTheme } from '@mui/material';
+import Header from './components/Header';
 import type { Live } from './components/LiveList';
 import LiveList from './components/LiveList';
 
@@ -94,6 +95,7 @@ const App: FC = () => {
     <div>
       <ThemeProvider theme={theme}>
         <CssBaseline />
+        <Header />
         <LiveList lives={lives} />
       </ThemeProvider>
     </div>
