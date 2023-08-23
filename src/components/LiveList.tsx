@@ -32,9 +32,17 @@ const CharacterList: FC = () => {
                   <Typography variant="h5" component="div">
                     {live.title}
                   </Typography>
-                  <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                    {live.act}
-                  </Typography>
+                  <Box display="flex" gap={1}>
+                    {live.acts.map((act, index) => (
+                      <Typography
+                        key={index}
+                        sx={{ mb: 1.5 }}
+                        color="text.secondary"
+                      >
+                        {act}
+                      </Typography>
+                    ))}
+                  </Box>
                   <Typography variant="body2">{live.venue}</Typography>
                 </CardContent>
                 <CardActions>
