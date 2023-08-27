@@ -1,24 +1,25 @@
 import type { FC } from 'react';
 import {
   Box,
-  Button,
   Card,
-  CardActions,
   CardContent,
   List,
   ListItem,
   Typography,
 } from '@mui/material';
-import { Link as RouterLink } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import useLives from '../hooks/useLives';
 
 const CharacterList: FC = () => {
+  const { liveID = '' } = useParams();
   const { lives } = useLives();
 
-  return (
-    <div>
-      <List>
-        {lives.map((live) => (
+  const live = lives.find((live) => live.uuid === liveID);
+
+  if (live != null) {
+    return (
+      <div>
+        <List>
           <ListItem key={live.uuid}>
             <Box display="flex" justifyContent="center" width="100%">
               <Card sx={{ width: 345 }}>
@@ -46,22 +47,15 @@ const CharacterList: FC = () => {
                   </Box>
                   <Typography variant="body2">{live.venue}</Typography>
                 </CardContent>
-                <CardActions>
-                  <Button
-                    component={RouterLink}
-                    to={`/lives/${live.uuid}`}
-                    size="small"
-                  >
-                    Learn More
-                  </Button>
-                </CardActions>
               </Card>
             </Box>
           </ListItem>
-        ))}
-      </List>
-    </div>
-  );
+        </List>
+      </div>
+    );
+  }
+
+  return <div>Not Found</div>;
 };
 
 export default CharacterList;

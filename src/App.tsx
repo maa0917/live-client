@@ -2,6 +2,7 @@ import { useEffect, type FC } from 'react';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import Header from './components/Header';
+import Live from './components/Live';
 import LiveList from './components/LiveList';
 import theme from './theme';
 
@@ -21,6 +22,7 @@ const App: FC = () => {
         <Header />
         <Routes>
           <Route path="/" element={<LiveList />} />
+          <Route path="/lives/:liveID" element={<Live />} />
         </Routes>
       </ThemeProvider>
     </div>
